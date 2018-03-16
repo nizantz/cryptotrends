@@ -1,6 +1,6 @@
 # Crypto Trends
 
-> A Vue.js project using TailwindCSS
+> A Vue.js project using TailwindCSS and vuetrend (https://cinwell.com/vue-trend/)
 
 ![screen shot 2018-03-16 at 1 13 15 am](https://user-images.githubusercontent.com/90957/37510112-4816f046-28b7-11e8-8a16-a4c5993cc36d.png)
 ## Build Setup
