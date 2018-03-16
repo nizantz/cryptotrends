@@ -1,4 +1,4 @@
-# mbtrends
+# Crypto Trends
 
 > A Vue.js project
 
