@@ -1,12 +1,12 @@
 <template>
     <div :class="customClass">
-        <div>{{title.toUpperCase()}}</div>
+        <div class="font-black">{{title.toUpperCase()}}</div>
         <trend
             :data="cryptoData"
             :gradient="gradient"
             :width="windowWidth"
             :height="windowHeight"
-            autoDrawDuration=10000
+            autoDrawDuration=9000
             stroke-width="2"
             auto-draw
             smooth>
@@ -21,6 +21,10 @@ export default {
     title:{
       type: String
       },
+    plotDays: {
+      type: Number,
+      default: 365
+    },
     customClass:{
       type: String
     },
@@ -51,7 +55,7 @@ export default {
     async getCryptoDataFromAPI() {
       try{
         const tempdata = [];
-        let response = fetch(`https://min-api.cryptocompare.com/data/histoday?aggregate=1&e=CCCAGG&extraParams=CryptoCompare&fsym=${this.cryptoCurrency}&limit=365&tryConversion=false&tsym=USD`, {
+        let response = fetch(`https://min-api.cryptocompare.com/data/histoday?aggregate=1&e=CCCAGG&extraParams=CryptoCompare&fsym=${this.cryptoCurrency}&limit=${this.plotDays}&tryConversion=false&tsym=USD`, {
         method: 'GET',
         }).then(response => response.json());
         let cData = await response;
@@ -91,6 +95,11 @@ export default {
         this.getCryptoDataFromAPI();
         this.getIconName();
   },
+  // updated () {
+  //   this.windowWidth = (window.innerWidth * 5 / 6);
+  //       this.getCryptoDataFromAPI();
+  //       this.getIconName();
+  // },
   mounted() {
     window.addEventListener('resize', this.handleResize);
   },
