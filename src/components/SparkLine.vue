@@ -3,7 +3,7 @@
         <div class="font-black">{{title.toUpperCase()}}</div>
         <trend
             :data="cryptoData"
-            :gradient="gradient"
+            :gradient="customGradient"
             :width="windowWidth"
             :height="windowHeight"
             autoDrawDuration=9000
@@ -31,22 +31,30 @@ export default {
     currency: {
       type: String,
       default:'eth'
-    },
-    customGradient: {
-      type: Array,
-      default: (() => ['violet', 'blue', 'red']),
     }
+    // ,
+    // customGradient: {
+    //   type: Array,
+    //   default: (() => ['violet', 'blue', 'red']),
+    // }
   },
   data() {
     return {
       cryptoData: [],
       windowHeight: 100,
       windowWidth: window.innerWidth * 5 / 6,
-      gradient: this.customGradient,
+      //gradient: this.customGradient,
       iconName: 'bug',
     };
   },
   computed: {
+    customGradient () {
+      // return ['violet', 'blue', 'red'];
+      // return ['#'+Math.floor(Math.random()*16777215).toString(16),'red','blue'];
+      return ['#'+Math.floor(Math.random()*16777215).toString(16),'violet','#'+Math.floor(Math.random()*16777215).toString(16)];
+      // return ['#'+Math.floor(Math.random()*8242408).toString(16),'#'+Math.floor(Math.random()*16215708).toString(16),'#'+Math.floor(Math.random()*5431520).toString(16)];
+      // return ['#'+Math.floor(Math.random()*16777215).toString(16),'#'+Math.floor(Math.random()*16777215).toString(16),'#'+Math.floor(Math.random()*16777215).toString(16)];
+    },
     cryptoCurrency() {
       return this.currency.toUpperCase();
     },

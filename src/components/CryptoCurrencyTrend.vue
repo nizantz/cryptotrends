@@ -13,11 +13,11 @@
     </div>
     <div v-if="truthyValue" v-for="(crypto,index) in cryptos" :key="index"> 
       <trend-chart
-        customClass="m-2 p-3 border border-red-lightest rounded"
+        customClass="m-2 p-3 border border-red-lightest rounded bg-ns-lightest"
         :title="crypto.name"
         :currency="crypto.symbol"
-        :plotDays="no_of_days"
-        :customGradient="['pink','#3F5EFB','#FC466B']">
+        :plotDays="no_of_days">
+        <!-- :customGradient="['pink','blue','red']"> -->
         </trend-chart>
     </div>
   </div>
